@@ -59,6 +59,9 @@
   .total .t-val{font-size:22px;font-weight:800;color:var(--accent-ink);
     font-variant-numeric:tabular-nums;min-width:56px;text-align:right}
 
+  .card.combined .total{border-top:none;background:var(--accent-ink)}
+  .card.combined .t-lbl,.card.combined .t-val{color:#fff}
+
   .review{background:var(--card);border:1px dashed var(--line2);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
   .review h3{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
   .review .rr{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
@@ -119,6 +122,10 @@
     <h2>10:30 AM &mdash; Modern Worship</h2>
     <div class="rows" id="rows-1030"></div>
     <div class="total"><span class="t-lbl">Total attendance</span><span class="t-val" id="tot-1030">0</span></div>
+  </div>
+
+  <div class="card combined">
+    <div class="total"><span class="t-lbl">Combined attendance (both services)</span><span class="t-val" id="tot-all">0</span></div>
   </div>
 
   <div class="card dev">
@@ -235,6 +242,7 @@
     var t=totals();
     $("tot-9").textContent=t.Attend9;
     $("tot-1030").textContent=t.Attend1030;
+    $("tot-all").textContent=t.Attend9+t.Attend1030;
     $("r-a9").textContent=t.Attend9;
     $("r-a1030").textContent=t.Attend1030;
     $("r-d9").textContent=t.Dev9;
